@@ -40,8 +40,5 @@ def predict():
         return "Not survived"
     
 
-
-
-
-
-first_app.run()
+if __name__ == "__main__":        # on running python app.py
+    first_app.run(host="0.0.0.0", port=5000)
