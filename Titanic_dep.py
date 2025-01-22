@@ -14,7 +14,9 @@ user_input_age = st.number_input('Age', min_value=0, max_value=100, value=30)
 
 if st.button('Predict'):
     #send input data to Flask API
-    response = requests.post('http://127.0.0.1:5000/predict', json={'Pclass': user_input_pclass, 'Sex': user_input_sex, 'Age': user_input_age})
+    response = requests.post('http://127.0.0.1:5000/predict', 
+                             json={'Pclass': user_input_pclass, 'Sex': user_input_sex, 'Age': user_input_age},
+                             timeout=20)
                                                                     
     if response.status_code == 200:
         st.write('Prediction:', response.text)
